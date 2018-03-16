@@ -1,8 +1,15 @@
+// Classes
 UI mainmenu;
+
+// states
 enum states {
   MAINMENU, USER, TEACHER, BLOCKCHAIN, BLOCK, NODE
 };
 states CState;
+
+// variables
+int buffer = 20;
+int butSize = 100;
 
 void setup() {
   size(400, 400);
@@ -14,20 +21,7 @@ void draw() {
   background(190);
   switch(CState) {
   case MAINMENU:
-
-    if (mainmenu.clickBox(20, 20, 100, 100, "Student")) {
-    
-    };
-    if (mainmenu.clickBox(140, 20, 100, 100, "Teacher")) {
-    
-    };
-    if (mainmenu.clickBox(140, 140, 100, 100, "Node")) {
-    
-    };
-    if (mainmenu.clickBox(20, 140, 100, 100, "Exit")) {
-    exit();
-    };
-
+    drawMM();
     break;
 
   case USER:
@@ -50,4 +44,26 @@ void draw() {
 
     break;
   }
+}
+
+
+void drawMM(){
+// draw the User View
+    if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "User")) {
+    CState = states.USER;
+    };
+    // draw the teacher View
+    if (mainmenu.clickBox(buffer  + butSize, buffer, butSize, butSize, "Teacher")) {
+    CState = states.TEACHER;
+    };
+    // draw the Node View
+    if (mainmenu.clickBox(buffer + butSize, buffer + butSize, 100, 100, "Node")) {
+    CState = states.NODE;
+    };
+    // Exits the program
+    if (mainmenu.clickBox(buffer, buffer + butSize, butSize, butSize, "Exit")) {
+    exit();
+    };
+
+
 }
