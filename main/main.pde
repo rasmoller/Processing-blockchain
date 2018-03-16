@@ -2,9 +2,7 @@
 UI mainmenu;
 
 // states
-enum states {
-  MAINMENU, USER, TEACHER, BLOCKCHAIN, BLOCK, NODE
-};
+enum states {MAINMENU, USER, TEACHER, BLOCKCHAIN, BLOCK, NODE};
 states CState;
 
 // variables
@@ -57,13 +55,28 @@ void drawMM(){
     CState = states.TEACHER;
     };
     // draw the Node View
-    if (mainmenu.clickBox(buffer + butSize, buffer + butSize, 100, 100, "Node")) {
+    if (mainmenu.clickBox(buffer + butSize, buffer + butSize, butSize, butSize, "Node")) {
     CState = states.NODE;
     };
     // Exits the program
     if (mainmenu.clickBox(buffer, buffer + butSize, butSize, butSize, "Exit")) {
     exit();
     };
+}
+
+void drawUser(){
+
 
 
 }
+
+
+void drawTeacher(){
+
+
+
+}
+
+void drawNode(){}
+void drawBlock(){}
+void drawBlockchain(){}

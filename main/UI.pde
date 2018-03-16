@@ -1,11 +1,19 @@
 
 class UI{
-
+  color hoverColor;
+  color rectColor;
+  
+  UI(color rect, color hover){
+    rectColor = rect;
+    hoverColor = hover;
+  }
+  UI(){
+  hoverColor = 230;
+  rectColor = #ffffff;
+  }
 
   boolean clickBox(int x, int y, int w, int h, String text){
     pushStyle();
-    color hoverColor = 230;
-    color rectColor = #ffffff;
     if(mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
       fill(hoverColor);
     }
@@ -18,11 +26,9 @@ class UI{
     text(text, x+(w/2), y+(h/2));
     popStyle();
     if(mousePressed && mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
-      rectColor = 230;
       return true;
     } 
-    else{ 
-      rectColor = 255;
+    else{
       return false;
     }
   }
