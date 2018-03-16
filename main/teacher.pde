@@ -1,0 +1,7 @@
+
+class teacher extends user{
+
+
+
+
+}
