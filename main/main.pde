@@ -1,49 +1,53 @@
 UI mainmenu;
-enum states {MAINMENU, USER, TEACHER, BLOCKCHAIN, BLOCK, NODE, NETWORK};
+enum states {
+  MAINMENU, USER, TEACHER, BLOCKCHAIN, BLOCK, NODE
+};
 states CState;
 
-void setup(){
-size(400,400);
-mainmenu = new UI();
-CState = states.MAINMENU;
-
-
-
-
+void setup() {
+  size(400, 400);
+  mainmenu = new UI();
+  CState = states.MAINMENU;
 }
 
-void draw(){
-background(190);
-switch(CState){
-case MAINMENU:
-  
-  if(mainmenu.clickBox(20,20,100,100, "im a box")){
-  
-  };
+void draw() {
+  background(190);
+  switch(CState) {
+  case MAINMENU:
 
-  break;
+    if (mainmenu.clickBox(20, 20, 100, 100, "Student")) {
+    
+    };
+    if (mainmenu.clickBox(140, 20, 100, 100, "Teacher")) {
+    
+    };
+    if (mainmenu.clickBox(140, 140, 100, 100, "Node")) {
+    
+    };
+    if (mainmenu.clickBox(20, 140, 100, 100, "Exit")) {
+    exit();
+    };
 
-case USER:
+    break;
 
-break;
+  case USER:
 
-case TEACHER:
+    break;
 
-break;
+  case TEACHER:
 
-case BLOCK:
+    break;
 
-break;
+  case BLOCK:
 
-case BLOCKCHAIN:
+    break;
 
-break;
+  case BLOCKCHAIN:
 
-case NETWORK:
+    break;
 
-break;
+  case NODE:
 
-}
-
-
+    break;
+  }
 }
