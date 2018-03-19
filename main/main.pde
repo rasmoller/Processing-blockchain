@@ -1,33 +1,45 @@
 // Classes
 UI mainmenu;
+Draw L;
+node N;
+teacher T;
+user U;
 
 // states
-enum states {MAINMENU, USER, TEACHER, BLOCKCHAIN, BLOCK, NODE};
+enum states {
+  MAINMENU, BLOCKCHAIN, BLOCK
+};
 states CState;
 
 // variables
 int buffer = 20;
 int butSize = 100;
+float size;
+int runOnce = 1;
 
 void setup() {
-  size(400, 400);
+  fullScreen();
+  N = new node();
+  T = new teacher();
+  U = new user();
+  L = new Draw();
   mainmenu = new UI();
   CState = states.MAINMENU;
 }
 
 void draw() {
+  if (runOnce == 1) {
+    runOnce = 0;
+    L.sizeIni(width/10);  
+    T.posTeacher(width-width/5, height/3);
+    N.posNode(width/2, height/5);
+    U.posUser(height-height/5);
+    N.receiveDataTeacher(T.input());
+  }
   background(190);
   switch(CState) {
   case MAINMENU:
     drawMM();
-    break;
-
-  case USER:
-
-    break;
-
-  case TEACHER:
-
     break;
 
   case BLOCK:
@@ -37,46 +49,31 @@ void draw() {
   case BLOCKCHAIN:
 
     break;
-
-  case NODE:
-
-    break;
   }
 }
 
 
-void drawMM(){
-// draw the User View
-    if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "User")) {
-    CState = states.USER;
-    };
-    // draw the teacher View
-    if (mainmenu.clickBox(buffer  + butSize, buffer, butSize, butSize, "Teacher")) {
-    CState = states.TEACHER;
-    };
-    // draw the Node View
-    if (mainmenu.clickBox(buffer + butSize, buffer + butSize, butSize, butSize, "Node")) {
-    CState = states.NODE;
-    };
-    // Exits the program
-    if (mainmenu.clickBox(buffer, buffer + butSize, butSize, butSize, "Exit")) {
-    exit();
-    };
+void drawMM() {
+  // draw the User View
+  L.draws();
+  N.drawTableTeacher();
+  N.DeawTableUsers();
+  // Exits the program
+  if (mainmenu.clickBox(buffer, buffer + butSize, butSize, butSize, "Exit")) {
+    //exit();
+  };
 }
 
-void drawUser(){
-
-
-
+void drawUser() {
 }
 
 
-void drawTeacher(){
-
-
-
+void drawTeacher() {
 }
 
-void drawNode(){}
-void drawBlock(){}
-void drawBlockchain(){}
+void drawNode() {
+}
+void drawBlock() {
+}
+void drawBlockchain() {
+}
