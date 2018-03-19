@@ -32,4 +32,19 @@ class UI{
       return false;
     }
   }
+  
+  boolean toggleBut(float x, float y, float h, float w){
+  boolean value = true;
+  pushStyle();
+    rect(x,y,w,h);
+    if(value==true){
+    fill(0,255,0);
+    }else{
+    fill(255,0,0);
+    }
+    if(mousePressed && mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
+      value = !value;
+    }
+  return value;
+  }
 }
