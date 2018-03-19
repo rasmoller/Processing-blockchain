@@ -19,23 +19,17 @@ int runOnce = 1;
 
 void setup() {
   fullScreen();
-  N = new node();
-  T = new teacher();
-  U = new user();
-  L = new Draw();
+  L = new Draw(width/10);
+  T = new teacher(width-width/5, height/3);
+  N = new node(T.input(), width/2, height/5);
+  U = new user(height-height/5);
+  
   mainmenu = new UI();
   CState = states.MAINMENU;
 }
 
 void draw() {
-  if (runOnce == 1) {
-    runOnce = 0;
-    L.sizeIni(width/10);  
-    T.posTeacher(width-width/5, height/3);
-    N.posNode(width/2, height/5);
-    U.posUser(height-height/5);
-    N.receiveDataTeacher(T.input());
-  }
+    
   background(190);
   switch(CState) {
   case MAINMENU:
@@ -60,20 +54,11 @@ void drawMM() {
   N.DeawTableUsers();
   // Exits the program
   if (mainmenu.clickBox(buffer, buffer + butSize, butSize, butSize, "Exit")) {
-    //exit();
+    exit();
   };
 }
 
-void drawUser() {
-}
-
-
-void drawTeacher() {
-}
-
 void drawNode() {
-}
-void drawBlock() {
 }
 void drawBlockchain() {
 }

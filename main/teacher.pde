@@ -6,7 +6,17 @@ class teacher {
   float _yStart;
   float[][] posTeachers = new float[numbersOfTeachers][2];
   
+  teacher(float xStart, float yStart){
+  float size = L.SizeCircle();
+    _xStart = xStart;
+    _yStart = yStart;
+    for (int i = 0; i <= numbersOfTeachers-1; i++) {
+      float nextPos = height/80 + size;
+      posTeachers[i][0] = xStart;
+      posTeachers[i][1] = yStart + nextPos*i;
+    }
   
+  }
   float xStart() {
     return _xStart;
   }
@@ -16,17 +26,6 @@ class teacher {
 
   float[][] allPosTeachers() {
     return posTeachers;
-  }
-
-  void posTeacher(float xStart, float yStart) {
-    float size = L.SizeCircle();
-    _xStart = xStart;
-    _yStart = yStart;
-    for (int i = 0; i <= numbersOfTeachers-1; i++) {
-      float nextPos = height/80 + size;
-      posTeachers[i][0] = xStart;
-      posTeachers[i][1] = yStart + nextPos*i;
-    }
   }
 
   String[][] input() {

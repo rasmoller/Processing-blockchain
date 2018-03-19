@@ -5,19 +5,8 @@ class user {
   int numbersOfUsers = 5;
   float[][] posUsers = new float[numbersOfUsers][2];
 
-
-  float[][] allPosUsers() {
-    return posUsers;
-  }
-  float xStart() {
-    return _xStart;
-  }
-  float yStart() {
-    return _yStart;
-  }
-
-  void posUser(float yStart) {
-    int q = -1;
+  user(float yStart){
+  int q = -1;
     int z = 0;
     _yStart = yStart;
     _xStart = N.xStart();
@@ -42,6 +31,20 @@ class user {
         posUsers[i][1] = yStart;
       }
     }
+  }
+
+  float[][] allPosUsers() {
+    return posUsers;
+  }
+  float xStart() {
+    return _xStart;
+  }
+  float yStart() {
+    return _yStart;
+  }
+
+  void posUser(float yStart) {
+    
   }
 
   boolean isEven(int n) {

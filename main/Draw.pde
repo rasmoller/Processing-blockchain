@@ -1,7 +1,8 @@
 class Draw {
   float _size;
-  void sizeIni(float value) {
-    _size = value;
+  
+  Draw(float value){
+  _size = value;
   }
   float SizeCircle() {
     return _size;
@@ -10,7 +11,6 @@ class Draw {
 
   void draws() {
     float size = SizeCircle();
-
     for (int i = 0; i <= N.allPosNodes().length - 1; i++) {
       for (int q = 0; q <= T.allPosTeachers().length -1; q++) {
         line(N.allPosNodes()[i][0], N.allPosNodes()[i][1], T.allPosTeachers()[q][0], T.allPosTeachers()[q][1]);

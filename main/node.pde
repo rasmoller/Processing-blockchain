@@ -12,7 +12,18 @@ class node {
   float[][] UserPos;
   boolean runOnce = true;
 
-
+  node(String[][] skema, float xStart, float yStart){
+  _skema = skema;
+  float size = L.SizeCircle();
+    _xStart = xStart;
+    _yStart = yStart;
+    for (int i = 0; i <= numbersOfNodes-1; i++) {
+      float nextPos = height/80 + size;
+      posNodes[i][0] = xStart;
+      posNodes[i][1] = yStart + nextPos*i;
+    }
+  }
+  
   float xStart() {
     return _xStart;
   }
@@ -24,27 +35,11 @@ class node {
     return posNodes;
   }
 
-
-  void receiveDataTeacher(String[][] skema) {
-    _skema = skema;
-  }
-
-
   String[][] sendData(String[][] skema) {
 
     return skema;
   }
 
-  void posNode(float xStart, float yStart) {
-    float size = L.SizeCircle();
-    _xStart = xStart;
-    _yStart = yStart;
-    for (int i = 0; i <= numbersOfNodes-1; i++) {
-      float nextPos = height/80 + size;
-      posNodes[i][0] = xStart;
-      posNodes[i][1] = yStart + nextPos*i;
-    }
-  }
   void drawTableTeacher() {
     float sizeSquareY = (height/4)/8;
     float sizeSquareX = (width/10);
@@ -70,8 +65,8 @@ class node {
       fill(255, 0, 0);
       textSize(FontSize);
       textAlign(LEFT, TOP);
-      text(_skema[i][0], x-(sizeSquareX-10)/2, y + i*FontSize - (_skema.length*FontSize)/2);
-      text(_skema[i][1], x-(sizeSquareX-320)/2, y + i*FontSize - (_skema.length*FontSize)/2);
+      text(_skema[i][0], x-(sizeSquareX-width/192)/2, y + i*FontSize - (_skema.length*FontSize)/2);
+      text(_skema[i][1], x-(sizeSquareX-width/6)/2, y + i*FontSize - (_skema.length*FontSize)/2);
       popStyle();
     }
   }
@@ -119,8 +114,8 @@ class node {
             popStyle();
           }
           runOnce = false;
-          text(_skema[i][0], UserPos[w][0]-(sizeSquareX-10)/2, UserPos[w][1] + i*FontSize - (_skema.length*FontSize)/2);
-          text(_skema[i][1], UserPos[w][0]-(sizeSquareX-320)/2, UserPos[w][1] + i*FontSize - (_skema.length*FontSize)/2);
+          text(_skema[i][0], UserPos[w][0]-(sizeSquareX-width/192)/2, UserPos[w][1] + i*FontSize - (_skema.length*FontSize)/2);
+          text(_skema[i][1], UserPos[w][0]-(sizeSquareX-width/6)/2, UserPos[w][1] + i*FontSize - (_skema.length*FontSize)/2);
           popStyle();
         }
       }
