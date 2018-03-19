@@ -1,8 +1,9 @@
 class Draw {
   float _size;
-  
-  Draw(float value){
-  _size = value;
+  boolean[] feedback = new boolean[N.sendData().length];
+
+  Draw(float value) {
+    _size = value;
   }
   float SizeCircle() {
     return _size;
@@ -19,6 +20,8 @@ class Draw {
       for (int q = 0; q <= U.allPosUsers().length -1; q++) {
         line(N.allPosNodes()[i][0], N.allPosNodes()[i][1], U.allPosUsers()[q][0], U.allPosUsers()[q][1]);
         ellipse(U.allPosUsers()[q][0], U.allPosUsers()[q][1], size, size);
+        feedback[i] = mainmenu.toggleBut(U.allPosUsers()[q][0], U.allPosUsers()[q][1], size, size);
+        
       }
       pushStyle();
       size = width/5;

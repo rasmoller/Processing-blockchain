@@ -12,9 +12,9 @@ class node {
   float[][] UserPos;
   boolean runOnce = true;
 
-  node(String[][] skema, float xStart, float yStart){
-  _skema = skema;
-  float size = L.SizeCircle();
+  node(String[][] skema, float xStart, float yStart) {
+    _skema = skema;
+    float size = L.SizeCircle();
     _xStart = xStart;
     _yStart = yStart;
     for (int i = 0; i <= numbersOfNodes-1; i++) {
@@ -23,7 +23,7 @@ class node {
       posNodes[i][1] = yStart + nextPos*i;
     }
   }
-  
+
   float xStart() {
     return _xStart;
   }
@@ -35,9 +35,8 @@ class node {
     return posNodes;
   }
 
-  String[][] sendData(String[][] skema) {
-
-    return skema;
+  String[][] sendData() {
+    return _skema;
   }
 
   void drawTableTeacher() {
@@ -120,5 +119,16 @@ class node {
         }
       }
     }
+  }
+
+  int userReturnData(Boolean[] feedBack) {
+    int feedBackTrue = 0;
+    for (int i = 0; i <= feedBack.length-1; i++) {
+      if(feedBack[i] = true){
+        feedBackTrue++;
+      }
+    }
+    println(feedBackTrue/feedBack.length);
+    return int((float(feedBackTrue)/float(feedBack.length))*100);
   }
 }
