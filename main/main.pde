@@ -16,20 +16,22 @@ int buffer = 20;
 int butSize = 100;
 float size;
 int runOnce = 1;
+boolean dayEnded;
 
 void setup() {
+  dayEnded = false;
   fullScreen();
   L = new Draw(width/10);
   T = new teacher(width-width/5, height/3);
   N = new node(T.input(), width/2, height/5);
   U = new user(height-height/5);
-  
+
   mainmenu = new UI();
   CState = states.MAINMENU;
 }
 
 void draw() {
-    
+
   background(190);
   switch(CState) {
   case MAINMENU:
@@ -52,10 +54,17 @@ void drawMM() {
   L.draws();
   N.drawTableTeacher();
   N.DeawTableUsers();
+  N.AnswerToNode();
   // Exits the program
-  if (mainmenu.clickBox(buffer, buffer + butSize, butSize, butSize, "Exit")) {
+  if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "Exit")) {
     exit();
-  };
+  }
+  if (N.skemaInPos() == true && dayEnded == false) {
+    if (mainmenu.clickBox(buffer, height - (buffer + butSize), butSize, butSize, "End day")) {
+      dayEnded = N.AnswerToNode();
+      
+    }
+  }
 }
 
 void drawNode() {

@@ -11,6 +11,7 @@ class node {
   float speed= 100;
   float[][] UserPos;
   boolean runOnce = true;
+  float[][] answerPos;
 
   node(String[][] skema, float xStart, float yStart) {
     _skema = skema;
@@ -120,11 +121,30 @@ class node {
       }
     }
   }
+  boolean skemaInPos() {
+    boolean skemaInPos = false;
+    if (xPos() == true) {
+      for (int w = 0; w <= U.allPosUsers().length - 1; w++) {
+        if (!(U.allPosUsers()[w][1] >= UserPos[w][1])) {
+          skemaInPos=true;
+          //println(U.allPosUsers()[w][1]);
+        }
+      }
+    }
+    return skemaInPos;
+  }
+
+
+
+  boolean AnswerToNode() {
+    return true;
+  }
+
 
   int userReturnData(Boolean[] feedBack) {
     int feedBackTrue = 0;
     for (int i = 0; i <= feedBack.length-1; i++) {
-      if(feedBack[i] = true){
+      if (feedBack[i] = true) {
         feedBackTrue++;
       }
     }
