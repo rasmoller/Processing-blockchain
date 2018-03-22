@@ -3,6 +3,7 @@ class UI {
   color hoverColor;
   color rectColor;
   int tSize;
+  int timer = 100;
 
   UI(color rect, color hover, int tSize) {
     rectColor = rect;
@@ -35,10 +36,18 @@ class UI {
     }
   }
 
-  boolean toggleBut(float x, float y, float h, float w, boolean value) {
+  boolean toggleBut(float x, float y, float h, float w, boolean value, boolean condition) {
     pushStyle();
-    if (mousePressed && mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h) {
-      value = !value;
+    if (timer > 0) {
+      timer--;
+    }
+    if (condition) {
+      if (timer <= 0) {
+        if (mousePressed && mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h) {
+          value = !value;
+          timer = 100;
+        }
+      }
     }
     if (value==true) {
       fill(0, 255, 0);

@@ -12,6 +12,7 @@ class node {
   float[][] UserPos;
   boolean runOnce = true;
   float[][] answerPos;
+  boolean runOnceO = true;
 
   node(String[][] skema, float xStart, float yStart) {
     _skema = skema;
@@ -80,6 +81,39 @@ class node {
     return xPos;
   }
 
+  boolean AnswerToNode() {
+    float sizeSquareY = (width/30);
+    float sizeSquareX = (width/30);
+    int FontSize = 10;
+    if (answerPos == null) {
+      answerPos = new float[U.allPosUsers().length][2];
+    }
+    for (int i = 0; i <= allPosNodes().length -1; i++) {
+      for (int w = 0; w <= U.allPosUsers().length - 1; w++) {
+        if (answerPos[w][0] == 0) {
+          answerPos[w][0] = UserPos[w][0];
+          answerPos[w][1] = UserPos[w][1];
+        }
+        if (N.allPosNodes()[i][1] <= answerPos[w][1] || runOnceO == true) {
+          answerPos[w][0] = answerPos[w][0] - (U.allPosUsers()[w][0] - N.xStart())/(speed);
+          answerPos[w][1] = answerPos[w][1] - (U.allPosUsers()[w][1] - N.yStart())/(speed);
+        }
+        pushStyle();
+        if (L.FeedBack()[w] == true) {
+          fill(0, 255, 0);
+        } else {
+          fill(255, 0, 0);
+        }
+        if (N.allPosNodes()[i][1] <= answerPos[w][1] || runOnceO == true) {        
+          ellipse(answerPos[w][0], answerPos[w][1], sizeSquareX, sizeSquareY);
+          runOnceO = false;
+        }
+        popStyle();
+      }
+    }
+    return true;
+  }
+
   void DeawTableUsers() {
     float sizeSquareY = (height/4)/8;
     float sizeSquareX = (width/10);
@@ -90,7 +124,6 @@ class node {
     if (xPos() == true) {
       for (int w = 0; w <= U.allPosUsers().length - 1; w++) {
         if (UserPos == null) {
-          UserPos = new float[U.allPosUsers().length][2];
           UserPos = new float[U.allPosUsers().length][2];
         }
         if (UserPos[w][0] == 0) {
@@ -135,20 +168,18 @@ class node {
   }
 
 
-
-  boolean AnswerToNode() {
-    return true;
-  }
-
-
-  int userReturnData(Boolean[] feedBack) {
+  int userReturnData(boolean[] feedBack) {
     int feedBackTrue = 0;
-    for (int i = 0; i <= feedBack.length-1; i++) {
-      if (feedBack[i] = true) {
-        feedBackTrue++;
+    for (int w = 0; w <= allPosNodes().length -1; w++) {
+      for (int i = 0; i <= U.allPosUsers().length-1; i++) {
+        if (N.allPosNodes()[w][1] <= answerPos[i][1]) {
+          if (feedBack[i] == true) {
+            feedBackTrue++;
+          }
+        }
       }
     }
-    println(feedBackTrue/feedBack.length);
+    //println(feedBackTrue/feedBack.length);
     return int((float(feedBackTrue)/float(feedBack.length))*100);
   }
 }

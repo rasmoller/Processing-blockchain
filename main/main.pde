@@ -1,4 +1,4 @@
-// Classes
+// Classes //<>//
 UI mainmenu;
 Draw L;
 node N;
@@ -54,7 +54,6 @@ void drawMM() {
   L.draws();
   N.drawTableTeacher();
   N.DeawTableUsers();
-  N.AnswerToNode();
   // Exits the program
   if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "Exit")) {
     exit();
@@ -62,8 +61,10 @@ void drawMM() {
   if (N.skemaInPos() == true && dayEnded == false) {
     if (mainmenu.clickBox(buffer, height - (buffer + butSize), butSize, butSize, "End day")) {
       dayEnded = N.AnswerToNode();
-      
     }
+  }
+  if (dayEnded == true) {
+    dayEnded = N.AnswerToNode();
   }
 }
 
