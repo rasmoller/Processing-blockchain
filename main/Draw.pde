@@ -4,6 +4,7 @@ class Draw {
   boolean locked = false;
   int procent;
   boolean runOnce = true;
+  boolean RunOnce = true;
 
   Draw(float value) {
     _size = value;
@@ -50,6 +51,16 @@ class Draw {
       for (int i = 0; i <= N.allPosNodes().length - 1; i++) {
         text(procent + "%", N.allPosNodes()[i][0], N.allPosNodes()[i][1] + width/20);
       }
+      if (procent <= 49 && dayEnded == true && N.arrived() == true) {
+        delay(60);
+        setup();
+      }
+      if (procent >= 50 && dayEnded == true && N.arrived() == true && RunOnce == true) {
+        new block(N.sendData());
+        //BC.addBlock(B.skemaToBlock(N.sendData()));
+        RunOnce = false;
+      }
+
       popStyle();
     }
   }

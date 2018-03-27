@@ -4,6 +4,8 @@ Draw L;
 node N;
 teacher T;
 user U;
+block B;
+blockchain BC;
 
 // states
 enum states {
@@ -25,6 +27,8 @@ void setup() {
   T = new teacher(width-width/5, height/3);
   N = new node(T.input(), width/2, height/5);
   U = new user(height-height/5);
+  B = new block();
+  BC = new blockchain();
 
   mainmenu = new UI();
   CState = states.MAINMENU;
@@ -68,7 +72,5 @@ void drawMM() {
   }
 }
 
-void drawNode() {
-}
 void drawBlockchain() {
 }

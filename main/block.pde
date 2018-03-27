@@ -1,13 +1,17 @@
 
-class block{
+class block {
 
-  String data;
+  String blockString;
 
 
-  block(){
-  
-  
+  block() {
   }
 
-
+  block(String[][] skema) {
+    blockString = "";
+    for(int i = 0; i <= skema.length - 1; i++){
+      blockString = blockString + skema[i][0] + " " + skema[i][1] + ";  ";
+    }
+    println(blockString);
+  }
 }

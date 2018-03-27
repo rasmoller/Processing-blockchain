@@ -182,4 +182,18 @@ class node {
     //println(feedBackTrue/feedBack.length);
     return int((float(feedBackTrue)/float(feedBack.length))*100);
   }
+
+  boolean arrived() {
+    boolean Arrived = false;
+    for (int i = 0; i <= allPosNodes().length -1; i++) {
+      for (int w = 0; w <= U.allPosUsers().length - 1; w++) {
+        if (answerPos[w][1] <= N.allPosNodes()[i][1]) {
+          Arrived = true;
+        } else {
+          Arrived = false;
+        }
+      }
+    }
+    return Arrived;
+  }
 }
