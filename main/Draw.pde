@@ -56,8 +56,8 @@ class Draw {
         setup();
       }
       if (procent >= 50 && dayEnded == true && N.arrived() == true && RunOnce == true) {
-        new block(N.sendData());
-        //BC.addBlock(B.skemaToBlock(N.sendData()));
+        
+        BC.addBlock(new block(N.sendData()));
         RunOnce = false;
       }
 

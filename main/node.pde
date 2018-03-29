@@ -114,7 +114,7 @@ class node {
     return true;
   }
 
-  void DeawTableUsers() {
+  void DrawTableUsers() {
     float sizeSquareY = (height/4)/8;
     float sizeSquareX = (width/10);
     int FontSize = 10;

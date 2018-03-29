@@ -1,7 +1,7 @@
 
 class blockchain {
 
-  ArrayList<block> chain;
+  ArrayList<block> chain = new ArrayList<block>();
 
   void addBlock(block b) { 
     chain.add(b);

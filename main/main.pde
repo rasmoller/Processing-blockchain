@@ -57,7 +57,7 @@ void drawMM() {
   // draw the User View
   L.draws();
   N.drawTableTeacher();
-  N.DeawTableUsers();
+  N.DrawTableUsers();
   // Exits the program
   if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "Exit")) {
     exit();
