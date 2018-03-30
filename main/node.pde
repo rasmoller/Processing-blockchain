@@ -41,6 +41,7 @@ class node {
     return _skema;
   }
 
+
   void drawTableTeacher() {
     float sizeSquareY = (height/4)/8;
     float sizeSquareX = (width/10);

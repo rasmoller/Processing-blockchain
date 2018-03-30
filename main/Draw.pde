@@ -55,33 +55,31 @@ class Draw {
       if (procent <= 49 && dayEnded == true && N.arrived() == true) {
         /*
         pushStyle();
-        rectMode(CENTER);
-        fill(255);
-        rect(width/2,height/2, 300, 100);
-        fill(0);
-        text("The block didn't meet the requirement and therefore the block will try to be accepted again.",width/2, height/2, 300, 100);
-        popStyle();
-        */
+         rectMode(CENTER);
+         fill(255);
+         rect(width/2,height/2, 300, 100);
+         fill(0);
+         text("The block didn't meet the requirement and therefore the block will try to be accepted again.",width/2, height/2, 300, 100);
+         popStyle();
+         */
         delay(600);
         setup();
       }
       if (procent >= 50 && dayEnded == true && N.arrived() == true && RunOnce == true) {
         /*
         pushStyle();
-        rectMode(CENTER);
-        fill(255);
-        rect(width/2,height/2, 300, 100);
-        fill(0);
-        text("The block met the requirement and there will be created a new block",width/2, height/2, 300, 100);
-        popStyle();
-        */
+         rectMode(CENTER);
+         fill(255);
+         rect(width/2,height/2, 300, 100);
+         fill(0);
+         text("The block met the requirement and there will be created a new block",width/2, height/2, 300, 100);
+         popStyle();
+         */
         delay(600);
         BC.addBlock(new block(N.sendData()));
         RunOnce = false;
+        setup();
       }
-      
-
-      
     }
   }
 }

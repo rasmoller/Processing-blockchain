@@ -5,7 +5,7 @@ node N;
 teacher T;
 user U;
 block B;
-blockchain BC;
+blockchain BC = new blockchain();
 
 // states
 enum states {
@@ -19,6 +19,9 @@ int butSize = 100;
 float size;
 int runOnce = 1;
 boolean dayEnded;
+int Dag = int(random(1, 30));
+int Maaned = int(random(1, 12));
+int aar = 2018;
 
 void setup() {
   dayEnded = false;
@@ -28,8 +31,6 @@ void setup() {
   N = new node(T.input(), width/2, height/5);
   U = new user(height-height/5);
   B = new block();
-  BC = new blockchain();
-
   mainmenu = new UI();
   CState = states.MAINMENU;
 }
@@ -47,7 +48,7 @@ void draw() {
     break;
 
   case BLOCKCHAIN:
-
+    drawBlockchain();
     break;
   }
 }
@@ -62,6 +63,18 @@ void drawMM() {
   if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "Exit")) {
     exit();
   }
+  if (BC.chain.size() >= 1) {
+    if (mainmenu.clickBox(int(buffer*6.5), buffer, butSize, butSize, "Blockchain")) {
+      delay(100);
+      CState = states.BLOCKCHAIN;
+      /*println(BC.fetchBlock(0).display());
+       println(BC.fetchBlock(0).Dato());
+       println(" ");
+       println(BC.fetchBlock(1).display());
+       println(BC.fetchBlock(1).Dato());
+       println(" ");*/
+    }
+  }
   if (N.skemaInPos() == true && dayEnded == false) {
     if (mainmenu.clickBox(buffer, height - (buffer + butSize), butSize, butSize, "End day")) {
       dayEnded = N.AnswerToNode();
@@ -73,4 +86,36 @@ void drawMM() {
 }
 
 void drawBlockchain() {
+  if (mainmenu.clickBox(buffer, buffer, butSize, butSize, "Exit")) {
+    exit();
+  }
+  if (mainmenu.clickBox(int(buffer*6.5), buffer, butSize, butSize, "Simulation")) {
+    CState = states.MAINMENU;
+    delay(100);
+    /*println(BC.fetchBlock(0).display());
+     println(BC.fetchBlock(0).Dato());
+     println(" ");
+     println(BC.fetchBlock(1).display());
+     println(BC.fetchBlock(1).Dato());
+     println(" ");*/
+  }
+  int textSize = 30;
+  for (int i = 0; i <= BC.chain.size(); i++) {
+    pushStyle();
+    fill(255);
+    rect(width/2-(width/2)/2, height/8, width/2, height/10);
+    fill(0);
+    textAlign(CENTER);
+    textSize(textSize);
+    text("Blockchain", width/2, height/8+(height/10)/2+textSize/2);
+
+    if (i > 0) {
+      fill(255);
+      rect(width/2-(width/2)/2, height/8 + height/10 +(height/50*i-1), width/2, height/50);
+      fill(0);
+      textSize(10);
+      text(BC.fetchBlock(i-1).display(), width/2, height/8 + height/10 + height/50*i-1 + textSize/2);
+    }
+    popStyle();
+  }
 }

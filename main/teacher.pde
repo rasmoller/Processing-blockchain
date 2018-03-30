@@ -46,7 +46,7 @@ class teacher {
 
     String fravaer;
     int randomNumber = int(random(1, 100)); //<>//
-    if (randomNumber >= names.length - 1/names.length) {
+    if (randomNumber >= names.length - 5/names.length) {
       fravaer = "true";
     } else {
       fravaer = "false";
