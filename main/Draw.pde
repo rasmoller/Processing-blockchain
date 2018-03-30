@@ -51,17 +51,37 @@ class Draw {
       for (int i = 0; i <= N.allPosNodes().length - 1; i++) {
         text(procent + "%", N.allPosNodes()[i][0], N.allPosNodes()[i][1] + width/20);
       }
+      popStyle();
       if (procent <= 49 && dayEnded == true && N.arrived() == true) {
-        delay(60);
+        /*
+        pushStyle();
+        rectMode(CENTER);
+        fill(255);
+        rect(width/2,height/2, 300, 100);
+        fill(0);
+        text("The block didn't meet the requirement and therefore the block will try to be accepted again.",width/2, height/2, 300, 100);
+        popStyle();
+        */
+        delay(600);
         setup();
       }
       if (procent >= 50 && dayEnded == true && N.arrived() == true && RunOnce == true) {
-        
+        /*
+        pushStyle();
+        rectMode(CENTER);
+        fill(255);
+        rect(width/2,height/2, 300, 100);
+        fill(0);
+        text("The block met the requirement and there will be created a new block",width/2, height/2, 300, 100);
+        popStyle();
+        */
+        delay(600);
         BC.addBlock(new block(N.sendData()));
         RunOnce = false;
       }
+      
 
-      popStyle();
+      
     }
   }
 }

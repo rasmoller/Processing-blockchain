@@ -30,7 +30,8 @@ class teacher {
 
   String[][] input() {
     String[][] skema = new String[names.length][2];
-
+    //skema[0][0] = String.valueOf(day());
+    //skema[0][1] = String.valueOf(month());
     for (int i = 0; i <= names.length-1; i++) {
       skema[i][0] = names[i];
       skema[i][1] = Random();
@@ -44,7 +45,7 @@ class teacher {
   String Random() {
 
     String fravaer;
-    int randomNumber = int(random(1, 100));
+    int randomNumber = int(random(1, 100)); //<>//
     if (randomNumber >= names.length - 1/names.length) {
       fravaer = "true";
     } else {
