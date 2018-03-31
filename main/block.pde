@@ -4,20 +4,33 @@ class block {
   String blockString;
   String Dato;
 
-
   block() {
   }
-
+  
   block(String[][] skema) {
-    Dag++;
-    if (Dag == 31) {
-      Dag = 0; 
-      Maaned++;
+    if(Maaned%2==1){
+      if (Dag > 31) {
+        Dag = 0; 
+        Maaned++;
+      }
     }
-    if (Maaned == 13) {
-      Maaned = 0;
+    else{
+      if(Maaned == 2){
+        if (Dag > 28) {
+        Dag = 0; 
+        Maaned++;
+      }
+      }
+      if (Dag > 30) {
+        Dag = 0; 
+        Maaned++;
+      }
+    }
+    if (Maaned > 12) {
+      Maaned = 1;
       aar++;
     }
+    Dag++;
 
     Dato = Dag + "/" + Maaned + "/" + aar;
     blockString = "Dato: " + Dato + ". ";

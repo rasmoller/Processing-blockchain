@@ -19,9 +19,9 @@ int butSize = 100;
 float size;
 int runOnce = 1;
 boolean dayEnded;
-int Dag = int(random(1, 30));
-int Maaned = int(random(1, 12));
-int aar = 2018;
+int Dag =  day();
+int Maaned = month();
+int aar = year();
 
 void setup() {
   dayEnded = false;
