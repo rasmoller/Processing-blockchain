@@ -33,7 +33,7 @@ class Draw {
         line(N.allPosNodes()[i][0], N.allPosNodes()[i][1], U.allPosUsers()[q][0], U.allPosUsers()[q][1]);
         ellipse(U.allPosUsers()[q][0], U.allPosUsers()[q][1], size, size);
         feedback[q] = mainmenu.toggleBut(U.allPosUsers()[q][0] + size*0.6, U.allPosUsers()[q][1] - (size/4)/2, size/4, size/4, feedback[q], !locked);
-        feedback[q] = true;
+        //feedback[q] = true;
       }
       pushStyle();
       size = width/5;
