@@ -64,7 +64,7 @@ class node {
         rect(x, y, sizeSquareX, _skema.length*FontSize+20);
         popStyle();
       }
-      fill(255, 0, 0);
+      fill(0, 0, 0);
       textSize(FontSize);
       textAlign(LEFT, TOP);
       text(_skema[i][0], x-(sizeSquareX-width/192)/2, y + i*FontSize - (_skema.length*FontSize)/2);
@@ -133,7 +133,7 @@ class node {
         }
         for (int i = 0; i <= _skema.length-1; i++) {
           pushStyle();
-          fill(255, 0, 0, 255);
+          fill(0, 0, 0, 255);
           textSize(FontSize);
           textAlign(LEFT, TOP);
           if (U.allPosUsers()[w][1] >= UserPos[w][1] || runOnce == true) {

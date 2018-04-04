@@ -1,7 +1,7 @@
 
 class teacher {
   int numbersOfTeachers = 1;
-  String[] names = new String[]{"Rasmus Møller", "Casper Bang", "Bastian Aron", "Masthias Klovn", "Mads Fisk", "TABER", "1", "2", "3", "4"};
+  String[] names = new String[]{"Rasmus Møller", "Casper Bang", "Bastian Aron", "Masthias Klovn", "Mads Fisk", "Jens Bang", "Nils Peter", "Peter Nils", "Emma Mathilde", "Ellen Jensen"};
   float _xStart;
   float _yStart;
   float[][] posTeachers = new float[numbersOfTeachers][2];
@@ -46,7 +46,7 @@ class teacher {
 
     String fravaer;
     int randomNumber = int(random(1, 100)); //<>//
-    if (randomNumber >= names.length - 5/names.length) {
+    if (randomNumber >= 25) {
       fravaer = "true";
     } else {
       fravaer = "false";

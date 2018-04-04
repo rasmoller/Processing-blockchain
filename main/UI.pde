@@ -45,6 +45,7 @@ class UI {
       if (timer <= 0) {
         if (mousePressed && mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h) {
           value = !value;
+          //value = true;
           timer = 100;
         }
       }

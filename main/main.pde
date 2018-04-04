@@ -111,7 +111,7 @@ void drawBlockchain() {
 
     if (i > 0) {
       fill(255);
-      rect(width/2-(width/2)/2, height/8 + height/10 +(height/50*i-1), width/2, height/50);
+      rect(0, height/8 + height/10 +(height/50*i-1), width, height/50);
       fill(0);
       textSize(10);
       text(BC.fetchBlock(i-1).display(), width/2, height/8 + height/10 + height/50*i-1 + textSize/2);
